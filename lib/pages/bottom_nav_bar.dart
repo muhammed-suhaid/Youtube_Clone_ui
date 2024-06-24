@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:youtube_clone_ui/pages/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -11,12 +12,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
   List<Widget> body = [
-    const Center(
-      child: Text(
-        'home',
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
+    const HomeScreen(),
     const Center(
       child: Text(
         'shorts',
