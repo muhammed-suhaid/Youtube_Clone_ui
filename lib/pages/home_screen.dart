@@ -9,34 +9,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shortsData = dummyData.where((data) => data.isShorts).toList();
+    final videoData = dummyData.where((data) => !data.isShorts).toList();
 
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      height: 70,
-                      child: Image.asset(
-                        'assets/images/main logo.png',
-                        fit: BoxFit.fill,
-                      ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    height: 70,
+                    child: Image.asset(
+                      'assets/images/main logo.png',
+                      fit: BoxFit.fill,
                     ),
-                    const Spacer(),
-                    SvgPicture.asset('assets/icons/cast.svg'),
-                    const SizedBox(width: 20),
-                    SvgPicture.asset('assets/icons/notification.svg'),
-                    const SizedBox(width: 20),
-                    const Icon(Icons.search),
-                  ],
-                ),
-                SizedBox(
+                  ),
+                  const Spacer(),
+                  SvgPicture.asset('assets/icons/cast.svg'),
+                  const SizedBox(width: 20),
+                  SvgPicture.asset('assets/icons/notification.svg'),
+                  const SizedBox(width: 20),
+                  const Icon(Icons.search),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: SizedBox(
                   height: 35,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -63,8 +62,11 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                const SizedBox(height: 20),
-                Row(
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
                   children: [
                     SizedBox(
                       height: 30,
@@ -81,10 +83,33 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                ShortsCard(shortsData: shortsData),
-              ],
-            ),
+              ),
+              const SizedBox(height: 10),
+              ShortsCard(shortsData: shortsData),
+              const SizedBox(height: 10),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: videoData.length,
+                itemBuilder: (context, index) {
+                  final data = videoData[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 250,
+                          child: Image.asset(
+                            data.image,
+                            fit: BoxFit.fitHeight,  
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              )
+            ],
           ),
         ),
       ),
