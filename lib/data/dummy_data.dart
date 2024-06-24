@@ -1,8 +1,19 @@
 import 'package:youtube_clone_ui/models/video.dart';
 
-List<Video> dummyData = [ 
+List categories = [
+  'assets/icons/explore.svg', 
+  'All',
+  'Flutter Scripter',
+  'Flutter',
+  'Dart',
+  'Ios',
+  'Android',
+  'Mobile Development',
+];
+
+List<Video> dummyData = [
   Video(
-    image: "assets/images/video_space.jpg",
+    image: "assets/images/video1.jpg",
     title: "Exploring the Cosmos: Journey Through Space and Time",
     accountName: "Space Enthusiast",
     profilePhoto: "assets/images/profile.jpg",
@@ -11,7 +22,7 @@ List<Video> dummyData = [
     isShorts: false,
   ),
   Video(
-    image: "assets/images/video_sound_mixer.jpg",
+    image: "assets/images/video2.jpg",
     title: "Mastering Sound Mixing: Pro Tips for Perfect Audio",
     accountName: "Audio Guru",
     profilePhoto: "assets/images/profile.jpg",
@@ -20,7 +31,7 @@ List<Video> dummyData = [
     isShorts: false,
   ),
   Video(
-    image: "assets/images/video_song.jpg",
+    image: "assets/images/video3.jpg",
     title: "Top Hits of 2024: The Best Songs You Need to Hear",
     accountName: "Music Vibes",
     profilePhoto: "assets/images/profile.jpg",
@@ -29,7 +40,7 @@ List<Video> dummyData = [
     isShorts: false,
   ),
   Video(
-    image: "assets/images/video_bike_vlog.jpg",
+    image: "assets/images/video4.jpg",
     title: "Epic Bike Vlog Adventure: Riding Through the Mountains",
     accountName: "Rider's Life",
     profilePhoto: "assets/images/profile.jpg",
@@ -38,7 +49,7 @@ List<Video> dummyData = [
     isShorts: false,
   ),
   Video(
-    image: "assets/images/video_photography.jpg",
+    image: "assets/images/video5.jpg",
     title: "Photography Tips and Tricks: Capture Stunning Photos",
     accountName: "Photo Pro",
     profilePhoto: "assets/images/profile.jpg",
@@ -47,7 +58,7 @@ List<Video> dummyData = [
     isShorts: false,
   ),
   Video(
-    image: "assets/images/short_photography.jpg",
+    image: "assets/images/shorts1.jpg",
     title: "Quick Photography Hacks for Stunning Snapshots",
     accountName: "Snap Master",
     profilePhoto: "assets/images/profile.jpg",
@@ -56,7 +67,7 @@ List<Video> dummyData = [
     isShorts: true,
   ),
   Video(
-    image: "assets/images/short_motivational.jpg",
+    image: "assets/images/shorts2.jpg",
     title: "Stay Motivated Everyday: Inspirational Quotes and Tips",
     accountName: "Life Coach",
     profilePhoto: "assets/images/profile.jpg",
@@ -65,7 +76,7 @@ List<Video> dummyData = [
     isShorts: true,
   ),
   Video(
-    image: "assets/images/short_beach.jpg",
+    image: "assets/images/shorts3.jpg",
     title: "Relaxing Beach Views: Serenity by the Shore",
     accountName: "Travel Vibes",
     profilePhoto: "assets/images/profile.jpg",
@@ -74,7 +85,7 @@ List<Video> dummyData = [
     isShorts: true,
   ),
   Video(
-    image: "assets/images/short_city_night.jpg",
+    image: "assets/images/shorts4.jpg",
     title: "City at Night: Exploring Urban Landscapes After Dark",
     accountName: "Urban Explorer",
     profilePhoto: "assets/images/profile.jpg",
@@ -83,7 +94,7 @@ List<Video> dummyData = [
     isShorts: true,
   ),
   Video(
-    image: "assets/images/short_city.jpg",
+    image: "assets/images/shorts5.jpg",
     title: "City Life Highlights: The Buzz and Hustle of Urban Living",
     accountName: "City Vibes",
     profilePhoto: "assets/images/profile.jpg",
