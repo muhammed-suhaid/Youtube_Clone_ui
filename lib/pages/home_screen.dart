@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:youtube_clone_ui/components/shorts_card.dart';
+import 'package:youtube_clone_ui/components/video_card.dart';
 import 'package:youtube_clone_ui/data/dummy_data.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -87,28 +88,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 10),
               ShortsCard(shortsData: shortsData),
               const SizedBox(height: 10),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: videoData.length,
-                itemBuilder: (context, index) {
-                  final data = videoData[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 250,
-                          child: Image.asset(
-                            data.image,
-                            fit: BoxFit.fitHeight,  
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              )
+              VideoCard(videoData: videoData), 
             ],
           ),
         ),
