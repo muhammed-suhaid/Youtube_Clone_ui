@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ShortsCard(shortsData: shortsData),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               VideoCard(videoData: videoData), 
             ],
           ),
