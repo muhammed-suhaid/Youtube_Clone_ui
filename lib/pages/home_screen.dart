@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:youtube_clone_ui/components/shorts_card.dart';
 import 'package:youtube_clone_ui/data/dummy_data.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,6 +8,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final shortsData = dummyData.where((data) => data.isShorts).toList();
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -60,6 +63,26 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    SizedBox(
+                      height: 30,
+                      child: Image.asset('assets/images/shorts.png'),
+                    ),
+                    const SizedBox(width: 10),
+                    const Text(
+                      'Shorts',
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                ShortsCard(shortsData: shortsData),
               ],
             ),
           ),
