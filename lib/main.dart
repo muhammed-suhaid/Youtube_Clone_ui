@@ -11,10 +11,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Youtube Clone',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: const Color(0xFF121212),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Color(0xFF121212),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
