@@ -1,7 +1,7 @@
 import 'package:youtube_clone_ui/models/video.dart';
 
 List categories = [
-  'assets/icons/explore.svg', 
+  'assets/icons/explore.svg',
   'All',
   'Flutter Scripter',
   'Flutter',

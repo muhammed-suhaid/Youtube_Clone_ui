@@ -23,7 +23,7 @@ class ShortsCard extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           final data = shortsData[index];
-      
+
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
