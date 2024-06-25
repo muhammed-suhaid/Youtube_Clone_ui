@@ -4,9 +4,15 @@ import 'package:youtube_clone_ui/components/shorts_card.dart';
 import 'package:youtube_clone_ui/components/video_card.dart';
 import 'package:youtube_clone_ui/data/dummy_data.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 1;
   @override
   Widget build(BuildContext context) {
     final shortsData = dummyData.where((data) => data.isShorts).toList();
@@ -43,22 +49,33 @@ class HomeScreen extends StatelessWidget {
                     itemCount: categories.length,
                     itemBuilder: (context, index) {
                       final category = categories[index];
-                      return Container(
-                        padding: const EdgeInsets.all(8),
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          color: index == 1 ? Colors.white : Colors.grey[800],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: index == 0
-                            ? SvgPicture.asset(category)
-                            : Text(
-                                category,
-                                style: TextStyle(
-                                  color:
-                                      index == 1 ? Colors.black : Colors.white,
+                      return InkWell(
+                        splashColor: Colors.transparent,
+                        onTap: () {
+                          setState(() {
+                            currentIndex = index;
+                          });
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          margin: const EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                            color: index == currentIndex
+                                ? Colors.white
+                                : Colors.grey[800],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: index == 0
+                              ? SvgPicture.asset(category)
+                              : Text(
+                                  category,
+                                  style: TextStyle(
+                                    color: currentIndex == index
+                                        ? Colors.black
+                                        : Colors.white,
+                                  ),
                                 ),
-                              ),
+                        ),
                       );
                     },
                   ),
@@ -70,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SizedBox(
-                      height: 30,
+                      height: 35,
                       child: Image.asset('assets/images/shorts.png'),
                     ),
                     const SizedBox(width: 10),
@@ -88,7 +105,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 10),
               ShortsCard(shortsData: shortsData),
               const SizedBox(height: 20),
-              VideoCard(videoData: videoData), 
+              VideoCard(videoData: videoData),
             ],
           ),
         ),
